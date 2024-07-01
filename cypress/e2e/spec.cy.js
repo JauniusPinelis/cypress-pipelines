@@ -52,8 +52,17 @@ describe("Full Game scenario", () => {
   })
 
   it("Marking 3 X in a row results in a player x won", () => {
-    cy.get(".board").eq(0).click()
-    debugger;
-    cy.get(".board").eq(1).click()
+    // X move
+    cy.get(".square").eq(0).click()
+    // O move
+    cy.get(".square").eq(6).click()
+    // X Move
+    cy.get(".square").eq(1).click()
+    // O move
+    cy.get(".square").eq(7).click()
+    // Final X Move
+    cy.get(".square").eq(2).click()
+
+    cy.contains("div", "Winner: X").should("be.visible")
   })
 })
